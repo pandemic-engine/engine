@@ -1,10 +1,32 @@
+import { Box } from './Box'
+import { Renderer2D } from './Renderer2D'
+import { Vector2 } from './Vector2'
+
 export class Game {
   protected isRunning: boolean = false
   protected lastElapsedTime: number = 0
   protected deltaTime: number = 0
   protected maxDeltaTime: number = 3
   protected fps: number = 0
-  protected runId: number|null = null
+
+  protected renderer: Renderer2D
+
+  protected box:Box
+
+  constructor (canvasElement: HTMLCanvasElement) {
+    this.renderer = new Renderer2D(canvasElement)
+
+    canvasElement.addEventListener('click', (e) => {
+      const moveTo = new Vector2(
+        e.clientX - canvasElement.getBoundingClientRect().left,
+        e.clientY - canvasElement.getBoundingClientRect().top
+      )
+
+      this.box.moveTo = moveTo
+    })
+
+    this.box = new Box(new Vector2(0, 0), 100, 50)
+  }
 
   /**
    * Start the game.
@@ -40,6 +62,15 @@ export class Game {
 
     // Store the current elapsed time in order to compare the next frame
     this.lastElapsedTime = elapsedTime;
+
+    // Calculate
+    this.box.onUpdate(this.deltaTime)
+
+    // Clear canvas
+    this.renderer.clear()
+
+    // Redraw
+    this.box.draw(this.renderer)
 
     if (this.isRunning === true) {
       // Continue running
