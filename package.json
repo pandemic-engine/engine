@@ -1,0 +1,19 @@
+{
+  "name": "@pandemic-engine/engine",
+  "version": "0.1.0",
+  "description": "A JS game engine for web browsers.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandemic-engine/engine.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandemic-engine/engine/issues"
+  },
+  "homepage": "https://github.com/pandemic-engine/engine#readme"
+}

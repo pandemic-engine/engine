@@ -1,0 +1,30 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "inlineSources": true,
+    "inlineSourceMap": true,
+    "declaration": true,
+    "outDir": "./lib",
+    "typeRoots": [ "./node_modules/@types" ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "typeAcquisition": {
+    "enable": true
+  },
+  "include": [ "./src/**/*" ],
+  "exclude": [
+    "./lib",
+    "./node_modules",
+    "./tests"
+  ]
+}
